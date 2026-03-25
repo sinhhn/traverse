@@ -43,7 +43,7 @@ export default function PCHomePage() {
         <div className="flex justify-between items-end mb-12">
           <div>
             <span className="text-xs font-bold text-[#8B1A1A] tracking-[0.2em] uppercase mb-3 block">
-              Real-time Availability
+              リアルタイム空車情報
             </span>
             <h2 className="text-3xl font-heading font-extrabold tracking-tighter">
               今すぐ稼働できる空き車両
