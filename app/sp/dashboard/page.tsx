@@ -5,6 +5,7 @@ import { getQuoteRequestsByStatus, dummyFavorites, getCompanyById } from '@/lib/
 import type { QuoteRequest, QuoteRequestStatus } from '@/types'
 import { Settings, ChevronRight, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
+import { BottomTabBar } from '@/components/common/BottomTabBar'
 
 type TabId = 'active' | 'waiting' | 'completed'
 
@@ -118,7 +119,7 @@ export default function ShipperDashboardPage() {
       </div>
 
       {/* Bottom Nav */}
-      <DashboardBottomNav />
+      <BottomTabBar activeTab="profile" />
     </div>
   )
 }
@@ -204,30 +205,3 @@ function QuoteRequestCard({ request: req }: { request: QuoteRequest }) {
   )
 }
 
-function DashboardBottomNav() {
-  return (
-    <nav className="fixed bottom-0 left-0 w-full bg-white/80 backdrop-blur-xl border-t border-neutral-200 z-50 pb-[env(safe-area-inset-bottom)]">
-      <div className="flex justify-around items-center h-16 max-w-[390px] mx-auto">
-        {[
-          { icon: '📊', label: 'Dashboard', href: '/sp/dashboard', active: false },
-          { icon: '📋', label: 'Quotes', href: '/sp/results', active: false },
-          { icon: '🚚', label: 'Shipments', href: '/sp/home', active: false },
-          { icon: '👤', label: 'Profile', href: '/sp/dashboard', active: true },
-        ].map(item => (
-          <Link
-            key={item.label}
-            href={item.href}
-            className={`flex flex-col items-center justify-center flex-1 pt-2 min-h-[44px] ${
-              item.active
-                ? 'text-[#8B1A1A] border-t-2 border-[#8B1A1A] -mt-px'
-                : 'text-neutral-400'
-            }`}
-          >
-            <span className="text-lg mb-0.5">{item.icon}</span>
-            <span className="text-[10px] font-bold uppercase tracking-tight">{item.label}</span>
-          </Link>
-        ))}
-      </div>
-    </nav>
-  )
-}
