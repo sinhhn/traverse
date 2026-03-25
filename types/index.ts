@@ -131,3 +131,25 @@ export interface WizardState {
 }
 
 export type MatchCardVariant = 'recommended' | 'available' | 'hiring' | 'standard' | 'unavailable'
+
+export type QuoteRequestStatus = 'active' | 'waiting' | 'completed' | 'expired'
+
+export interface QuoteRequest {
+  id: string
+  status: QuoteRequestStatus
+  origin: string
+  destination: string
+  vehicleType: VehicleType
+  temperature: Temperature
+  requestedAt: string
+  companyIds: string[]
+  hasResponse: boolean
+  isNew: boolean
+}
+
+export interface FavoriteCompany {
+  id: string
+  companyId: string
+  name: string
+  initials: string
+}
