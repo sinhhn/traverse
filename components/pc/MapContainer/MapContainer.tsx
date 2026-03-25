@@ -17,7 +17,7 @@ export interface MapContainerProps {
   zoom?: number
 }
 
-const MAPS_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
+import { GOOGLE_MAPS_KEY as MAPS_KEY } from '@/lib/config'
 
 export function MapContainer({
   companies,

@@ -4,7 +4,7 @@ import type { Company } from '@/types'
 import { APIProvider, Map, AdvancedMarker } from '@vis.gl/react-google-maps'
 import { MapPin } from 'lucide-react'
 
-const MAPS_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY
+import { GOOGLE_MAPS_KEY as MAPS_KEY } from '@/lib/config'
 
 export function SPHeroMap({ companies }: { companies: Company[] }) {
   if (!MAPS_KEY) {
