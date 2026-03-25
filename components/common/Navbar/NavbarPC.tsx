@@ -8,10 +8,10 @@ export interface NavbarPCProps {
 }
 
 const navLinks = [
-  { href: '/search', label: '運送会社を探す' },
-  { href: '#', label: '空き車両' },
-  { href: '#', label: '求人' },
-  { href: '#', label: '料金' },
+  { href: '/pc/search', label: '運送会社を探す' },
+  { href: '/pc/search', label: '空き車両' },
+  { href: '/pc/search', label: '求人' },
+  { href: '/pc/search', label: '料金' },
 ]
 
 export function NavbarPC({ activeLink }: NavbarPCProps) {

@@ -10,9 +10,9 @@ export interface BottomTabBarProps {
 const tabs = [
   { id: 'home' as const, label: 'ホーム', icon: Home, href: '/sp/home' },
   { id: 'search' as const, label: '探す', icon: Search, href: '/sp/wizard/step1' },
-  { id: 'vehicles' as const, label: '空き車両', icon: Truck, href: '#' },
-  { id: 'notifications' as const, label: '通知', icon: Bell, href: '#' },
-  { id: 'profile' as const, label: 'マイページ', icon: User, href: '#' },
+  { id: 'vehicles' as const, label: '空き車両', icon: Truck, href: '/sp/results' },
+  { id: 'notifications' as const, label: '通知', icon: Bell, href: '/sp/home' },
+  { id: 'profile' as const, label: 'マイページ', icon: User, href: '/sp/home' },
 ]
 
 export function BottomTabBar({ activeTab }: BottomTabBarProps) {
