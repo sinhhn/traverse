@@ -61,6 +61,35 @@ export default function SpHomePage() {
           </div>
         </section>
 
+        {/* Transport Category Search */}
+        <section className="mt-8 px-4">
+          <div className="text-center mb-4">
+            <h3 className="text-base font-bold">輸送カテゴリから探す</h3>
+            <p className="text-xs text-neutral-400 mt-1">何を運ぶかで絞り込み</p>
+            <div className="w-8 h-0.5 bg-[#8B1A1A] mx-auto mt-2" />
+          </div>
+          <div className="grid grid-cols-3 gap-3">
+            {[
+              { emoji: '📦', label: '一般貨物', desc: '製造・小売' },
+              { emoji: '❄️', label: '冷凍・冷蔵', desc: '食品・医薬品' },
+              { emoji: '🏠', label: '引越し', desc: '個人・法人' },
+              { emoji: '💻', label: '精密機器', desc: 'IT・医療' },
+              { emoji: '🏗️', label: '重量物', desc: '建材・機械' },
+              { emoji: '⚡', label: '緊急便', desc: '当日対応' },
+            ].map(cat => (
+              <Link
+                key={cat.label}
+                href={`/sp/results?category=${encodeURIComponent(cat.label)}`}
+                className="flex flex-col items-center gap-1.5 p-3 bg-white rounded-xl border border-neutral-200 active:bg-neutral-50 transition-colors"
+              >
+                <span className="text-2xl">{cat.emoji}</span>
+                <span className="font-bold text-xs text-neutral-800">{cat.label}</span>
+                <span className="text-[10px] text-neutral-400">{cat.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         {/* Premium Companies */}
         <section className="mt-8">
           <div className="px-4 mb-3">

@@ -116,6 +116,37 @@ export default function PCHomePage() {
         </div>
       </section>
 
+      {/* Transport Category Search */}
+      <section className="py-20 max-w-[1440px] mx-auto px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-heading font-extrabold tracking-tighter mb-3">
+            輸送カテゴリから探す
+          </h2>
+          <p className="text-neutral-500 text-sm">何を運ぶかで、最適な運送会社を絞り込み</p>
+          <div className="w-12 h-1 bg-[#8B1A1A] mx-auto mt-4" />
+        </div>
+        <div className="grid grid-cols-6 gap-6">
+          {[
+            { emoji: '📦', label: '一般貨物', desc: '製造・小売・卸', specialties: ['一般貨物'] },
+            { emoji: '❄️', label: '冷凍・冷蔵', desc: '食品・医薬品', specialties: ['冷凍輸送', '冷蔵便', 'チルド輸送'] },
+            { emoji: '🏠', label: '引越し', desc: '個人・法人', specialties: ['引越し補助'] },
+            { emoji: '💻', label: '精密機器', desc: 'IT・医療機器', specialties: ['精密機器'] },
+            { emoji: '🏗️', label: '重量物', desc: '建材・機械', specialties: ['重量物', '鉄鋼輸送'] },
+            { emoji: '⚡', label: '緊急便', desc: '当日・即日対応', specialties: ['緊急'] },
+          ].map(cat => (
+            <Link
+              key={cat.label}
+              href={`/pc/search?category=${encodeURIComponent(cat.label)}`}
+              className="flex flex-col items-center gap-3 p-6 bg-white rounded-xl border border-neutral-200 hover:border-[#8B1A1A]/30 hover:shadow-panel transition-all group cursor-pointer"
+            >
+              <span className="text-3xl group-hover:scale-110 transition-transform">{cat.emoji}</span>
+              <span className="font-bold text-sm text-neutral-800">{cat.label}</span>
+              <span className="text-xs text-neutral-400">{cat.desc}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Premium Feature Callout */}
       <section className="bg-neutral-100 py-20 overflow-hidden relative">
         <div className="max-w-[1440px] mx-auto px-8 flex flex-col md:flex-row items-center gap-16">
