@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Home, Search, Truck, Bell, User } from 'lucide-react'
+import { Home, Search, Truck, User } from 'lucide-react'
 
 export interface BottomTabBarProps {
   activeTab: 'home' | 'search' | 'vehicles' | 'notifications' | 'profile'
@@ -11,7 +11,6 @@ const tabs = [
   { id: 'home' as const, label: 'ホーム', icon: Home, href: '/sp/home' },
   { id: 'search' as const, label: '探す', icon: Search, href: '/sp/wizard/step1' },
   { id: 'vehicles' as const, label: '空き車両', icon: Truck, href: '/sp/results' },
-  { id: 'notifications' as const, label: '通知', icon: Bell, href: '/sp/dashboard' },
   { id: 'profile' as const, label: 'マイページ', icon: User, href: '/sp/dashboard' },
 ]
 
