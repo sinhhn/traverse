@@ -1,10 +1,10 @@
 import { dummyCompanies, dummyAvailableVehicles, getLatestNews } from '@/lib/dummy'
 import { CompanyCardCompact } from '@/components/common/CompanyCard'
 import { BottomTabBar } from '@/components/common/BottomTabBar'
-import { Button } from '@/components/ui'
-import { Search, ArrowRight, Newspaper } from 'lucide-react'
+import { Newspaper } from 'lucide-react'
 import Link from 'next/link'
 import { SPHeroMap } from './SPHeroMap'
+import { QuickSearch } from './QuickSearch'
 
 export default function SpHomePage() {
   const availableVehicles = dummyAvailableVehicles.slice(0, 4)
@@ -22,30 +22,8 @@ export default function SpHomePage() {
         {/* Hero Map */}
         <SPHeroMap companies={dummyCompanies.filter(c => c.plan === 'premium')} />
 
-        {/* Search Entry Card */}
-        <section className="mx-4 -mt-10 relative z-10">
-          <div className="bg-white rounded-xl p-5 shadow-panel">
-            <h2 className="text-lg font-bold mb-4">運送会社をさがす</h2>
-            <div className="relative mb-4">
-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
-              <input
-                className="w-full h-12 pl-10 pr-4 bg-neutral-50 border-none rounded-lg text-sm"
-                placeholder="エリアまたは会社名で検索..."
-                readOnly
-              />
-            </div>
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className="px-3 py-1.5 bg-[#8B1A1A]/5 text-[#8B1A1A] rounded-full text-xs font-medium border border-[#8B1A1A]/10">冷凍車</span>
-              <span className="px-3 py-1.5 bg-[#8B1A1A]/5 text-[#8B1A1A] rounded-full text-xs font-medium border border-[#8B1A1A]/10">当日対応</span>
-              <span className="px-3 py-1.5 bg-[#8B1A1A]/5 text-[#8B1A1A] rounded-full text-xs font-medium border border-[#8B1A1A]/10">求人あり</span>
-            </div>
-            <Link href="/sp/wizard/step1">
-              <Button variant="primary" size="lg" className="w-full">
-                条件を指定して探す <ArrowRight size={18} />
-              </Button>
-            </Link>
-          </div>
-        </section>
+        {/* Quick Search Card */}
+        <QuickSearch />
 
         {/* Available Vehicles */}
         <section className="mt-8">
