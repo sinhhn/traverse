@@ -33,6 +33,30 @@ export function CompanyDetailSP({ company, reviews, jobs, vehicles }: CompanyDet
     <div className="min-h-screen bg-[#faf9f5] max-w-[390px] mx-auto pb-24">
       <NavbarSP title={company.name} showBack />
       <main className="pt-14">
+        {/* Photo Banner */}
+        {company.photos.length > 0 && (
+          <section className="px-4 py-4">
+            <div className="relative">
+              <div className="flex gap-2 overflow-x-auto snap-x snap-mandatory h-[160px] rounded-xl">
+                {company.photos.map((photo, i) => (
+                  <div key={i} className="flex-none w-full snap-center">
+                    <img
+                      src={photo}
+                      alt={`${company.name} 写真${i + 1}`}
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                  </div>
+                ))}
+              </div>
+              {company.photos.length > 1 && (
+                <div className="absolute bottom-3 right-3 bg-black/50 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-medium">
+                  1 / {company.photos.length}
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
         {/* Header */}
         <div className="px-5 py-6 bg-white border-b border-neutral-200">
           <div className="flex items-start gap-4">
