@@ -4,6 +4,10 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'TraVerse — 物流ナビサイト',
   description: '物流会社を探す・比較する・見積もりを依頼する',
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
